@@ -28,6 +28,8 @@ function drawBackground(){
     ctx.fillStyle = color;
     ctx.fillRect(0, height/2, width, 1);
     ctx.fillRect(width/2, 0, 1, height);
+    lineTo(0,0,width,height, color);
+    lineTo(width,0,0,height, color);
 }
 
 function onDraw(e){
