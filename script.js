@@ -17,9 +17,15 @@ function initializeCanvasFunction(can){
         lastCoords = null;
     }
     can.onmousemove = (e) => onDraw(e);
-    can.touchstart = can.onmousedown;
-    can.touchend = can.onmouseup;
-    can.touchmove = can.onmousemove;
+    can.touchstart = (e) => {
+        mouseDown = true;
+        onDraw(e);
+    };
+    can.touchend = (e) => {
+        mouseDown = false;
+        lastCoords = null;
+    }
+    can.touchmove = (e) => onDraw(e);
 }
 
 function drawBackground(){
