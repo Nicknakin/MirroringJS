@@ -7,6 +7,7 @@ let mouseDown = false;
 let lastCoords = null;
 
 
+//Initialize all of the canvas events, on touch, on release, on move
 function initializeCanvasFunction(can){
     can.onmousedown = (e) => {
         mouseDown = true;
