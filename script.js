@@ -2,7 +2,7 @@ let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 let width = canvas.width;
 let height = canvas.height;
-let color = "WHITE";
+let color = "ORANGE";
 let mouseDown = false;
 let lastCoords = null;
 
@@ -53,13 +53,17 @@ function onDraw(e){
         coords.push([y, width-x]);
         coords.push([height-y, x]);
         coords.push([height-y, width-x]);
-        if(lastCoords != null){
+        if(lastCoords == null){
+            lastCoords = coords;
+        } else{
             for(let i = 0; i < coords.length; i++){
                 //ctx.fillRect(coords[i][0], coords[i][1], 1, 1);
                 lineTo(coords[i][0], coords[i][1], lastCoords[i][0], lastCoords[i][1], color);            
             }
         }
         lastCoords = coords;
+        ctx.fillStyle = "rgba(0,0,0,0.05)";
+        ctx.fillRect(0,0,width,height);
     }
 }
 
